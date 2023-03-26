@@ -29,7 +29,6 @@ class MediumAPI {
 
     try {
         const response = await axios.post(endpoint, data, { headers: this.headers });
-        console.log(response)
         return response.data.data;
     } catch  (error) {
         console.log(error.response.data.errors[0].message)

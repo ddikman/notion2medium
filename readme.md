@@ -7,5 +7,6 @@ This is a tiny tool that allows you to export pages from Notion to Medium. It us
 ```sh
 yarn install
 EXPORT NOTION_API_KEY=<apiKey>
+EXPORT MEDIUM_API_KEY=<apiKey>
 node index.js <pageId>
 ```
