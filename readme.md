@@ -4,7 +4,9 @@ This is a tiny tool that allows you to export pages from Notion to Medium. It us
 
 ## WIP
 
-This is still a work in progress, it doesn't actually upload the content yet.
+This is still a work in progress, it doesn't actually upload the content yet, it will only create a new post with he URL of the notion page.
+
+To get the content to upload properly I first need to work out a way to convert it. Secondly, I will need to upload any images that are private to Notion.
 
 ## Running
 
