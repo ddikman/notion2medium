@@ -1,6 +1,7 @@
 require("dotenv").config();
 const NotionAPI = require("./notion-api.js");
 const MediumAPI = require("./medium-api.js");
+const { markdownToHtml } = require('./markdown-transformer.js');
 
 const pageId = process.argv[2];
 const notionAPIKey = process.env.NOTION_API_KEY;
@@ -18,10 +19,9 @@ const mediumClient = new MediumAPI(mediumAPIKey)
 
 // Retrieve the page content
 async function main() {
-  const response = await notionAPI.getPageContent(pageId)
-
-  const content = "Updated content = " + response.url
-  const result = await mediumClient.updatePost(response.title, content);
+  const markdownContent = await notionAPI.getPageContent(pageId)
+  const htmlContent = markdownToHtml(markdownContent);
+  const result = await mediumClient.updatePost('new post', htmlContent);
   console.log(`Medium post updated: ${result.url}`)
 }
 
